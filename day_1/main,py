@@ -1,0 +1,83 @@
+# onbject and name
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(id(a), id(b), id(c)) 
+print(a is b)            #   same object
+print(a is c)             # diff obj 
+print(a == c)      # equcal number
+
+
+#  new str but s re-attach
+s = "hi"
+print(id(s))
+s = s + "!"
+print(id(s)) 
+
+
+s = "hello"
+s.upper()          # returns a new string; s is unchanged
+print(s)
+
+nums = [3, 1, 2]
+result = nums.sort()   
+print(result)          # nthg
+print(nums)
+
+
+import copy
+
+orig = [[1, 2], [3, 4]]
+
+alias   = orig                
+shallow = copy.copy(orig)    
+deep    = copy.deepcopy(orig)  
+
+#question 
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a, a is b)
+
+
+#2
+s = "abc"
+t = s
+t += "d"
+print(s, t)
+
+#3
+x = [1, 2]
+y = x
+y += [3]
+print(x, x is y)
+
+x = [1, 2]
+y = x
+y = y + [3]
+print(x, x is y)
+
+#4
+def f(items):
+    items.append(1)
+    items = [99]
+    items.append(2)
+    return items
+
+data = [0]
+print(f(data), data)
+
+
+#5
+orig = [[1, 2], [3, 4]]
+shallow = orig.copy()
+shallow[0].append(99)
+shallow.append([5])
+print(orig)
+
+#6
+grid = [[0] * 2] * 2
+grid[0][0] = 7
+print(grid)
+
